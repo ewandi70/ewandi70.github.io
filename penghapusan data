@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permintaan Penghapusan Akun & Data – eSchedulle</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 12px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #667eea;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #667eea;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            z-index: 999;
+        }
+        .scroll-to-top.show {
+            display: flex;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin: 20px 0;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin: 35px 0 15px 0;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        p {
+            margin: 12px 0;
+            text-align: justify;
+        }
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .box {
+            background: #f0f7ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+        .footer {
+            border-top: 2px solid #ddd;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 0.95em;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 14px 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                gap: 0;
+                padding: 20px 0;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .nav-link {
+                display: block;
+                padding: 15px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            .nav-link::after {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .container { padding: 25px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">📅 ESchedulle</a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="privacy-policy.html" class="nav-link" id="nav-privacy">Privasi</a></li>
+            <li><a href="terms-of-service.html" class="nav-link" id="nav-tos">Syarat & Ketentuan</a></li>
+            <li><a href="delete-account.html" class="nav-link active" id="nav-delete">Hapus Akun</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="container">
+
+<h1>🗑️ Permintaan Penghapusan Akun & Data – eSchedulle</h1>
+
+<div class="success-box">
+    <p><strong>✓ Informasi Penting:</strong> eSchedulle <strong>tidak menyimpan data pengguna di server kami</strong>. 
+    Data jadwal dan To-Do yang disinkronkan oleh eSchedulle disimpan di <strong>Google Drive milik pengguna</strong>, 
+    khususnya di App Data Folder yang digunakan oleh aplikasi.</p>
+</div>
+
+<h2>Cara Menghapus Akun & Data Terkait</h2>
+<p>Untuk menghapus akses akun dan data yang terkait dengan eSchedulle, ikuti langkah berikut:</p>
+
+<div class="box">
+    <div class="step-item">
+        <span class="step-number">1</span>
+        <div class="step-content">Buka aplikasi <strong>eSchedulle</strong>.</div>
+    </div>
+    <div class="step-item">
+        <span class="step-number">2</span>
+        <div class="step-content">Buka menu <strong>Settings</strong>.</div>
+    </div>
+    <div class="step-item">
+        <span class="step-number">3</span>
+        <div class="step-content">Pilih <strong>Sign Out / Keluar</strong> dari akun Google.</div>
+    </div>
+    <div class="step-item">
+        <span class="step-number">4</span>
+        <div class="step-content">
+            Untuk menghapus data eSchedulle yang tersimpan di Google Drive, Anda dapat mencabut akses eSchedulle ke akun Google melalui halaman izin akun Google:<br>
+            <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">
+                https://myaccount.google.com/permissions
+            </a>
+        </div>
+    </div>
+    <div class="step-item">
+        <span class="step-number">5</span>
+        <div class="step-content">
+            Jika diperlukan, hapus data atau file eSchedulle yang tersimpan di App Data Folder melalui mekanisme pengelolaan data aplikasi Google Drive.
+        </div>
+    </div>
+</div>
+
+<h2>Data yang Dihapus</h2>
+<ul>
+    <li>eSchedulle <strong>tidak menyimpan salinan</strong> data jadwal atau To-Do pengguna di server kami.</li>
+    <li>Dengan keluar dari akun dan mencabut akses eSchedulle ke akun Google, eSchedulle tidak lagi memiliki akses ke data yang tersimpan di Google Drive pengguna.</li>
+    <li>Data yang tersimpan di Google Drive tetap berada di bawah kendali pengguna dan dapat dikelola atau dihapus sesuai dengan fitur dan kebijakan Google Drive.</li>
+</ul>
+
+<h2>Data di Server eSchedulle</h2>
+<div class="highlight">
+    <p>
+        eSchedulle <strong>tidak menyimpan salinan</strong> data jadwal, To-Do, atau data Google Drive pengguna di server kami.
+        Setelah akses eSchedulle dicabut, aplikasi tidak lagi dapat mengakses data Google Drive yang sebelumnya digunakan untuk sinkronisasi.
+    </p>
+</div>
+
+<h2>Catatan</h2>
+<ul>
+    <li>Penghapusan atau pencabutan akses Google dilakukan melalui sistem Google dan tunduk pada kebijakan serta mekanisme yang disediakan oleh Google.</li>
+    <li>Untuk informasi lebih lanjut mengenai pengelolaan izin aplikasi pada akun Google, pengguna dapat mengakses halaman izin akun Google:
+        <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">https://myaccount.google.com/permissions</a>
+    </li>
+</ul>
+
+<h2>Hubungi Kami</h2>
+<p>Jika Anda mengalami kesulitan dalam proses penghapusan akun atau data, silakan hubungi kami:</p>
+<div class="highlight">
+    <p>
+        <strong>Email:</strong> <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a><br>
+        <strong>Aplikasi:</strong> eSchedulle
+    </p>
+</div>
+
+<div class="footer">
+    <p><strong>Permintaan Penghapusan Akun & Data – eSchedulle</strong></p>
+    <p>Terakhir diperbarui: September 2026</p>
+</div>
+
+</div>
+
+<button class="scroll-to-top" id="scrollToTop">↑</button>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+</body>
+</html>

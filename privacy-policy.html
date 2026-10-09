@@ -21,7 +21,6 @@
             min-height: 100vh;
             padding-top: 80px;
         }
-        /* Navbar */
         nav {
             position: fixed;
             top: 0;
@@ -289,198 +288,65 @@
 <h1>🔒 Kebijakan Privasi ESchedulle</h1>
 
 <h2>1. Ikhtisar</h2>
-<p>ESchedulle adalah aplikasi produktivitas yang dirancang untuk membantu Anda mengelola jadwal dan membuat daftar tugas secara efektif. Privasi dan keamanan data Anda adalah prioritas utama kami.</p>
-<p>Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi data Anda saat menggunakan aplikasi kami. Kami berkomitmen pada transparansi dan memberikan Anda kontrol penuh atas informasi Anda.</p>
+<p><strong>ESchedulle</strong> adalah aplikasi produktivitas Android yang dirancang untuk membantu Anda mengelola jadwal rutinitas, alarm, dan daftar tugas (To-Do) secara efektif. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi data Anda saat menggunakan aplikasi mobile <strong>ESchedulle</strong> dan situs web <a href="https://eschedulle.online">https://eschedulle.online</a>.</p>
 
 <h2>2. Pengumpulan & Penggunaan Data</h2>
 
-<h3>2.1 Data Jadwal & Tugas</h3>
-<p>Data jadwal dan daftar tugas Anda disimpan <strong>eksklusif di perangkat Anda</strong>. Data ini termasuk:</p>
-<ul>
-    <li>Judul dan deskripsi acara</li>
-    <li>Nama dan catatan tugas</li>
-    <li>Tanggal dan waktu yang dijadwalkan</li>
-    <li>Preferensi notifikasi</li>
-</ul>
-<div class="highlight">
-    <p><strong>✓ Penting:</strong> Data ini tidak akan pernah dikirim ke server atau layanan cloud apa pun kecuali Anda secara eksplisit memilih untuk melakukan sinkronisasi dengan Google Drive anda sendiri.</p>
-</div>
+<h3>2.1 Data Informasi Akun (Google Sign-In)</h3>
+<p>Saat Anda memilih untuk masuk menggunakan Google Sign-In, kami menerima informasi profil dasar meliputi alamat email dan nama Anda. Informasi ini digunakan secara eksklusif untuk memverifikasi identitas Anda dan menyediakan fitur sinkronisasi data jadwal harian Anda.</p>
 
-<h3>2.2 Integrasi Google Drive (Pencadangan & Sinkronisasi Opsional)</h3>
-<p>ESchedulle menawarkan opsi pencadangan dan sinkronisasi dengan Google Drive. Berikut cara kerjanya:</p>
-<div class="box">
-    <strong>🔐 Apa yang terjadi saat Anda login dengan Google Drive:</strong>
-    <ul>
-        <li>Data jadwal dan tugas Anda dapat dicadangkan ke Google Drive</li>
-        <li>Aplikasi hanya mengakses <strong>folder khusus aplikasi</strong> (appDataFolder)</li>
-        <li>Aplikasi <strong>TIDAK BISA</strong> mengakses file atau dokumen lain di Drive Anda</li>
-        <li>Anda dapat menonaktifkan sinkronisasi kapan saja dengan logout di aplikasi</li>
-        <li>Semua Alaram otomatis dihapus saat Anda menghapus instalasi aplikasi</li>
-    </ul>
-</div>
-<p><strong>Ruang Lingkup OAuth yang Diminta:</strong></p>
-<ul>
-    <li><code>drive.appdata</code> - Akses ke folder data khusus aplikasi (utama)</li>
-    <li><code>drive.file</code> - Fallback untuk operasi file individual (sekunder)</li>
-</ul>
-<p>Kedua ruang lingkup mengikuti <strong>prinsip privilege minimum</strong>, artinya kami hanya meminta izin minimum yang diperlukan.</p>
+<h3>2.2 Data Jadwal, Tugas & Pencadangan Cloud</h3>
+<p>Data jadwal, waktu alarm, dan daftar tugas yang Anda buat disimpan secara lokal di perangkat Anda. Jika Anda mengaktifkan fitur pencadangan cloud (Google Drive / Firebase), data ini disimpan di ruang penyimpanan terlindungi agar Anda dapat mengaksesnya kembali saat berganti perangkat.</p>
 
 <h3>2.3 Notifikasi & Alarm</h3>
-<p>Notifikasi dan pengingat alarm diproses <strong>100% lokal di perangkat Anda</strong>:</p>
-<ul>
-    <li>Tidak ada data notifikasi yang dikirim ke server eksternal</li>
-    <li>Alarm dikelola sepenuhnya oleh sistem notifikasi perangkat Anda</li>
-    <li>Anda dapat menyesuaikan pengaturan notifikasi per tugas</li>
-</ul>
+<p>Notifikasi pengingat dan alarm diproses di perangkat Anda untuk memastikan jadwal harian dan timer berjalan tepat waktu meskipun perangkat dalam kondisi terkunci.</p>
 
-<h3>2.4 Periklanan (Google AdMob)</h3>
-<p>ESchedulle menampilkan iklan melalui Google AdMob yang di kontrol oleh google</p>
-
-<h2>3. Izin yang Diperlukan</h2>
-<p>Berikut adalah semua izin yang diminta oleh ESchedulle dan mengapa kami membutuhkannya:</p>
+<h2>3. Izin Aplikasi yang Diperlukan</h2>
+<p>Berikut adalah izin sistem yang diminta oleh ESchedulle beserta fungsinya:</p>
 
 <div class="box">
     <strong>INTERNET</strong>
-    <p>Diperlukan untuk: Sinkronisasi Google Drive dan periklanan AdMob</p>
+    <p>Diperlukan untuk: Otentikasi Google Sign-In, sinkronisasi cloud, dan layanan periklanan.</p>
 </div>
 
 <div class="box">
-    <strong>NOTIFICATIONS</strong>
-    <p>Diperlukan untuk: Menampilkan notifikasi alarm dan pengingat tugas</p>
+    <strong>POST_NOTIFICATIONS & SCHEDULE_EXACT_ALARM</strong>
+    <p>Diperlukan untuk: Menampilkan notifikasi alarm dan pengingat jadwal tepat waktu.</p>
 </div>
 
 <div class="box">
-    <strong>SCHEDULE_EXACT_ALARM</strong>
-    <p>Diperlukan untuk: Menjadwalkan pengingat tepat waktu</p>
+    <strong>RECEIVE_BOOT_COMPLETED & WAKE_LOCK</strong>
+    <p>Diperlukan untuk: Menjadwalkan ulang alarm secara otomatis saat perangkat dihidupkan ulang.</p>
 </div>
 
-<div class="box">
-    <strong>RECEIVE_BOOT_COMPLETED</strong>
-    <p>Diperlukan untuk: Penjadwalan ulang otomatis alarm setelah restart perangkat</p>
-</div>
-
-<div class="box">
-    <strong>WAKE_LOCK</strong>
-    <p>Diperlukan untuk: Menjaga aplikasi tetap berjalan selama notifikasi alarm</p>
-</div>
-
-<div class="box">
-    <strong>VIBRATE</strong>
-    <p>Diperlukan untuk: Memberikan umpan balik haptic untuk alarm dan notifikasi</p>
-</div>
-
-<div class="box">
-    <strong>FOREGROUND_SERVICE</strong>
-    <p>Diperlukan untuk: Menjalankan layanan alarm dengan notifikasi persisten</p>
-</div>
-
-<div class="box">
-    <strong>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</strong>
-    <p>Diperlukan untuk: Memastikan alarm bekerja bahkan dalam mode hemat baterai</p>
-</div>
-
-<h2>4. Keamanan Data</h2>
-<p>Kami menerapkan berbagai langkah keamanan untuk melindungi data Anda:</p>
+<h2>4. Keamanan & Penghapusan Data</h2>
+<p>Kami menerapkan standar keamanan berbasis token OAuth 2.0 dan enkripsi terenkripsi untuk melindungi data Anda. Anda memiliki kontrol penuh atas data Anda:</p>
 <ul>
-    <li><strong>Enkripsi Lokal:</strong> Semua data yang disimpan di perangkat Anda terenkripsi</li>
-    <li><strong>Transmisi Aman:</strong> Data Google Drive menggunakan koneksi HTTPS terenkripsi</li>
-    <li><strong>Autentikasi OAuth 2.0:</strong> Autentikasi berbasis token yang aman untuk akses Drive</li>
-    <li><strong>Tanpa Berbagi Pihak Ketiga:</strong> Data Anda tidak pernah dibagikan dengan pihak ketiga</li>
-    <li><strong>Izin Minimal:</strong> Aplikasi hanya meminta izin minimum yang diperlukan</li>
+    <li>Anda dapat menghapus entri jadwal dan tugas kapan saja langsung dari dalam aplikasi.</li>
+    <li>Anda dapat melakukan keluar akun (Sign Out) dari aplikasi kapan saja.</li>
+    <li>Saat Anda menghapus instalasi (*uninstall*) aplikasi, seluruh data lokal pada perangkat akan terhapus.</li>
+    <li>Anda dapat mengajukan permohonan penghapusan akun dan seluruh data terkait dengan menghubungi kami melalui email.</li>
 </ul>
 
-<h2>5. Kontrol & Hak Pengguna</h2>
-<p>Anda memiliki kontrol penuh atas data Anda:</p>
-
-<h3>Data Jadwal & Tugas</h3>
+<h2>5. Layanan Pihak Ketiga</h2>
+<p>Aplikasi ini terintegrasi dengan layanan pihak ketiga tepercaya berikut:</p>
 <ul>
-    <li>✓ Hapus acara atau tugas apa pun kapan saja</li>
-    <li>✓ Jadwalkan tugas dengan mudah</li>
+    <li><strong>Google Sign-In & Google Drive API:</strong> Untuk otentikasi akun dan pencadangan data jadwal.</li>
+    <li><strong>Firebase (Google Cloud Platform):</strong> Untuk infrastruktur otentikasi dan notifikasi.</li>
+    <li><strong>Google AdMob & Unity Ads:</strong> Untuk menampilkan iklan guna mendukung pengembangan aplikasi.</li>
 </ul>
 
-<h3>Sinkronisasi Google Drive</h3>
-<ul>
-    <li>✓ Aktifkan atau nonaktifkan sinkronisasi dengan login atau logout dari google drive</li>
-    <li>✓ Hapus cadangan dari Drive tanpa mempengaruhi data perangkat</li>
-    <li>✓ Cabut akses aplikasi dari pengaturan Akun Google</li>
-</ul>
-
-<h3>Notifikasi</h3>
-<ul>
-    <li>✓ Senyapkan notifikasi tugas individual</li>
-    <li>✓ Nonaktifkan semua notifikasi di Pengaturan</li>
-    <li>✓ Kontrol waktu notifikasi dan suara</li>
-</ul>
-
-<h3>Penghapusan Data</h3>
-<p>Saat Anda mencopot ESchedulle:</p>
-<ul>
-    <li>Semua data lokal otomatis dihapus dari perangkat Anda</li>
-    <li>Data 100% tersimpan di drive anda sendiri dan dapat diakses lagi dengan login kembali walaupun perangkat berbeda</li>
-    <li>Tidak ada data residual yang tersisa di server kami (kami tidak memiliki server)</li>
-</ul>
-
-<h2>6. Layanan Pihak Ketiga</h2>
-<p>ESchedulle terintegrasi dengan layanan berikut:</p>
-
-<h3>Layanan Google</h3>
-<ul>
-    <li><strong>Google Sign-In:</strong> Untuk autentikasi ke Google Drive</li>
-    <li><strong>Google Drive API:</strong> Untuk fungsionalitas pencadangan dan sinkronisasi</li>
-    <li><strong>Google AdMob:</strong> Untuk menampilkan iklan</li>
-</ul>
-
-<h2>7. Hubungi Kami</h2>
-<p>Jika Anda memiliki pertanyaan silahkan hubungi saya melalui email:</p>
+<h2>6. Hubungi Kami</h2>
+<p>Jika Anda memiliki pertanyaan mengenai Kebijakan Privasi ini, silakan hubungi pengembang di:</p>
 <div class="highlight">
     <p>
         <strong>Email:</strong> <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a><br>
-        <strong>Aplikasi:</strong> ESchedulle<br>
+        <strong>Situs Web:</strong> <a href="https://eschedulle.online">https://eschedulle.online</a>
     </p>
 </div>
 
-<h2>8. Ringkasan Cepat</h2>
-<table>
-    <tr>
-        <th>Fitur</th>
-        <th>Penyimpanan Data</th>
-        <th>Akses Server</th>
-        <th>Kontrol Pengguna</th>
-    </tr>
-    <tr>
-        <td>Jadwal & Tugas</td>
-        <td>Hanya Perangkat</td>
-        <td>Tidak</td>
-        <td>Kontrol Penuh</td>
-    </tr>
-    <tr>
-        <td>Cadangan Google Drive</td>
-        <td>Google Drive (opsional)</td>
-        <td>Ya (dengan izin)</td>
-        <td>Bisa aktif/nonaktif</td>
-    </tr>
-    <tr>
-        <td>Notifikasi</td>
-        <td>Hanya Perangkat</td>
-        <td>Tidak</td>
-        <td>Bisa senyap/nonaktif</td>
-    </tr>
-    <tr>
-        <td>Iklan</td>
-        <td>Server Google</td>
-        <td>Ya</td>
-        <td>Bisa tolak</td>
-    </tr>
-</table>
-
-<div class="highlight">
-    <p><strong>✓ Pengakuan:</strong> Dengan menggunakan ESchedulle, Anda mengakui bahwa Anda telah membaca dan memahami Kebijakan Privasi ini dan setuju dengan persyaratannya.</p>
-</div>
-
 <div class="gallery-section">
-    <h2>Galeri Screenshot ESchedulle</h2>
-    <p>Berikut adalah beberapa screenshot dari antarmuka ESchedulle:</p>
-
+    <h2>Galeri Tampilan ESchedulle</h2>
     <div class="gallery">
         <div class="gallery-item">
             <h3>Home</h3>
@@ -495,9 +361,17 @@
             </a>
         </div>
         <div class="gallery-item">
+            <h3>Notifikasi</h3>
+            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqCnUIqmH2V1ivPsSysP8DWxS-G9QDtUwLGvGkuoMoswlyx-qieT8PhaouCVfoP3j5yCQrQNokY5vYBsb-AxoZMyiG1JhLiOsTK2BRqi1Z2DjPqXnZsFr-GCMPB-hjHvcE4JE7xaJkWDfQ3G0Kox_aEr3Dm-7WL7B5fxVhZGkj8wSHRZO4e28tMPTkBzY/s1600/Notifikasi.jpg" target="_blank">
+                <img alt="Notifikasi" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqCnUIqmH2V1ivPsSysP8DWxS-G9QDtUwLGvGkuoMoswlyx-qieT8PhaouCVfoP3j5yCQrQNokY5vYBsb-AxoZMyiG1JhLiOsTK2BRqi1Z2DjPqXnZsFr-GCMPB-hjHvcE4JE7xaJkWDfQ3G0Kox_aEr3Dm-7WL7B5fxVhZGkj8wSHRZO4e28tMPTkBzY/s1600/Notifikasi.jpg"/>
+            </a>
+        </div>
+    </div>
+</div>
+
 <div class="footer">
     <p><strong>Kebijakan Privasi ESchedulle</strong></p>
-    <p>Terakhir diperbarui: Februari 2026</p>
+    <p>Terakhir diperbarui: Oktober 2026</p>
 </div>
 
 </div>
@@ -541,50 +415,4 @@
 </script>
 
 </body>
-</html>     <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqCnUIqmH2V1ivPsSysP8DWxS-G9QDtUwLGvGkuoMoswlyx-qieT8PhaouCVfoP3j5yCQrQNokY5vYBsb-AxoZMyiG1JhLiOsTK2BRqi1Z2DjPqXnZsFr-GCMPB-hjHvcE4JE7xaJkWDfQ3G0Kox_aEr3Dm-7WL7B5fxVhZGkj8wSHRZO4e28tMPTkBzY/s1600/Notifikasi.jpg" target="_blank">
-                <img alt="Notifikasi" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqCnUIqmH2V1ivPsSysP8DWxS-G9QDtUwLGvGkuoMoswlyx-qieT8PhaouCVfoP3j5yCQrQNokY5vYBsb-AxoZMyiG1JhLiOsTK2BRqi1Z2DjPqXnZsFr-GCMPB-hjHvcE4JE7xaJkWDfQ3G0Kox_aEr3Dm-7WL7B5fxVhZGkj8wSHRZO4e28tMPTkBzY/s1600/Notifikasi.jpg"/>
-            </a>
-        </div>
-        <div class="gallery-item">
-            <h3>Opsi Jadwal Berulang</h3>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJyoe9GcOKDa5kPQAgK9fgE3i50T3pVOK-ewlJWtJJonrLVZ7xsI0vMVsw5exEuPI__WGhcZHVX_gVqkY4pFSZniyFbbCy8_wDo2issEoPzX6THXJC2B4USJWcdAF02-Z2TAJRdUBzIIE6omVIYDuUt2u9Z83FdPF71YpSEqfptYFBfKABsMBmigs0hMk/s1600/Opsi%20pilih%20hari%20dan%20tanggal%20berulang.jpg" target="_blank">
-                <img alt="Opsi Jadwal Berulang" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJyoe9GcOKDa5kPQAgK9fgE3i50T3pVOK-ewlJWtJJonrLVZ7xsI0vMVsw5exEuPI__WGhcZHVX_gVqkY4pFSZniyFbbCy8_wDo2issEoPzX6THXJC2B4USJWcdAF02-Z2TAJRdUBzIIE6omVIYDuUt2u9Z83FdPF71YpSEqfptYFBfKABsMBmigs0hMk/s1600/Opsi%20pilih%20hari%20dan%20tanggal%20berulang.jpg"/>
-            </a>
-        </div>
-        <div class="gallery-item">
-            <h3>Pilih Hari Spesifik</h3>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaPLWJEUmuTWF0rJp-eGzJVWxpkxz4lt1CceY2bxG3UM8w_ZDhms2Z03t5xNKBufByGEpAw-CJ03_trQ5TcVJNgMzd7oNAKSNDrq3ezuKpF8nXh-c00qhPm0_ZNL13K7yzstZ7Shtt7QsTMn9h6N0H2BO-yH-0fhAnjdYDeCpXWoy7Nj2xNF5tG6Mmml0/s1600/Pilih%20hari%20spesifik.jpg" target="_blank">
-                <img alt="Pilih Hari Spesifik" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaPLWJEUmuTWF0rJp-eGzJVWxpkxz4lt1CceY2bxG3UM8w_ZDhms2Z03t5xNKBufByGEpAw-CJ03_trQ5TcVJNgMzd7oNAKSNDrq3ezuKpF8nXh-c00qhPm0_ZNL13K7yzstZ7Shtt7QsTMn9h6N0H2BO-yH-0fhAnjdYDeCpXWoy7Nj2xNF5tG6Mmml0/s1600/Pilih%20hari%20spesifik.jpg"/>
-            </a>
-        </div>
-        <div class="gallery-item">
-            <h3>Setingan</h3>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzKrwEDJrWRTYtGAWHjhqwsGrCkp5UBNprkKYXhhubGFjfsGa5EaHA_04YjCe9wgBgdLaG8b5i7h2YyGKGsiz1MBFJ8C0tkw6m4q-49dyE0tjkpGdE0USBzJjUnQmSgYwy5tprJmZ1lMeGwJVsrfObynwxmD2z3W26rKGp5v9SaXL6H5QsLk28TKJqMRQ/s1600/Setingan%20tampilan%20dan%20suara.jpg" target="_blank">
-                <img alt="Setingan" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzKrwEDJrWRTYtGAWHjhqwsGrCkp5UBNprkKYXhhubGFjfsGa5EaHA_04YjCe9wgBgdLaG8b5i7h2YyGKGsiz1MBFJ8C0tkw6m4q-49dyE0tjkpGdE0USBzJjUnQmSgYwy5tprJmZ1lMeGwJVsrfObynwxmD2z3W26rKGp5v9SaXL6H5QsLk28TKJqMRQ/s1600/Setingan%20tampilan%20dan%20suara.jpg"/>
-            </a>
-        </div>
-        <div class="gallery-item">
-            <h3>Tambah Jadwal</h3>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEyE1A6X01azMChMCOgOit09AO1nY23jCw8__fTBDJQdroQ8iKKbwiGBwczCSab7QARTKk5e9IEjxObhCbFfZjA0Xp_JIFK5EuWtYSJXQE0IkzCnbK0IuRcltqJ280oK1o0Xv_xaGN8xgxaDYMGytGny4gXBJN_yzGn86pdakwtSwz9X03nIjeDT72fm4/s1600/Tambah%20jadwal.jpg" target="_blank">
-                <img alt="Tambah Jadwal" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEyE1A6X01azMChMCOgOit09AO1nY23jCw8__fTBDJQdroQ8iKKbwiGBwczCSab7QARTKk5e9IEjxObhCbFfZjA0Xp_JIFK5EuWtYSJXQE0IkzCnbK0IuRcltqJ280oK1o0Xv_xaGN8xgxaDYMGytGny4gXBJN_yzGn86pdakwtSwz9X03nIjeDT72fm4/s1600/Tambah%20jadwal.jpg"/>
-            </a>
-        </div>
-        <div class="gallery-item">
-            <h3>Tambah Tugas</h3>
-            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjjldb1vknFzmKVeQ-w9lgtFPvLgQa-pNoby0lD1pF4XzCnOaWwLM8Di9IwEfx27vdRxKeQYf6HguzJ2SW70ZLiWehtFWRR-On7F-JLJnTDQaa9_h0gDCo2RzYs0x08qBydInW7yKioeRaCCb3IJNd8J4bt0D2OwqytPnEVSXwTFqK2taebUIto82zqNo/s1600/Tambah%20tugas.jpg" target="_blank">
-                <img alt="Tambah Tugas" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjjldb1vknFzmKVeQ-w9lgtFPvLgQa-pNoby0lD1pF4XzCnOaWwLM8Di9IwEfx27vdRxKeQYf6HguzJ2SW70ZLiWehtFWRR-On7F-JLJnTDQaa9_h0gDCo2RzYs0x08qBydInW7yKioeRaCCb3IJNd8J4bt0D2OwqytPnEVSXwTFqK2taebUIto82zqNo/s1600/Tambah%20tugas.jpg"/>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="footer">
-    <p><strong>Kebijakan Privasi ESchedulle</strong></p>
-    <p>Terakhir diperbarui: Februari 2026</p>
-</div>
-
-</div>
-</body>
-
 </html>
-

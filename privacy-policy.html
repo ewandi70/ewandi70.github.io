@@ -2,14 +2,19 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="c56CREK9O6HxNT9DqBu6PlbN7Rr0C5ZL-nWPcE5cbIQ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <meta name="description" content="Kebijakan Privasi ESchedulle: data yang dikumpulkan, tujuan penggunaan, Google Sign-In, Google Drive, iklan, dan pilihan penghapusan data.">
     <link rel="canonical" href="https://eschedulle.online/privacy-policy.html">
+    <meta property="og:title" content="Kebijakan Privasi - ESchedulle">
+    <meta property="og:description" content="Kebijakan privasi aplikasi ESchedulle.">
+    <meta property="og:url" content="https://eschedulle.online/privacy-policy.html">
+    <meta property="og:type" content="website">
     <title>Kebijakan Privasi - ESchedulle</title>
     <style>
-        :root { --primary: #536dfe; --dark: #172554; --muted: #475569; }
+        :root { --primary: #536dfe; --dark: #172554; --muted: #475569; --surface: #fff; }
         * { box-sizing: border-box; }
         body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.7; color: #1e293b; background: linear-gradient(135deg, #536dfe, #7c3aed); }
         nav { position: sticky; top: 0; z-index: 2; background: rgba(255,255,255,.97); box-shadow: 0 2px 14px rgba(15,23,42,.15); }
@@ -18,18 +23,20 @@
         nav ul { display: flex; gap: 20px; list-style: none; padding: 0; margin: 0; }
         nav a { color: #334155; text-decoration: none; font-weight: 600; }
         nav a:hover, nav a:focus { color: var(--primary); text-decoration: underline; }
-        main { max-width: 950px; margin: 32px auto; padding: 0 22px; }
-        article { background: #fff; border-radius: 16px; padding: clamp(24px, 5vw, 56px); box-shadow: 0 14px 45px rgba(15,23,42,.22); }
-        h1, h2 { color: var(--dark); line-height: 1.25; }
-        h1 { margin-top: 0; font-size: clamp(2rem, 5vw, 3rem); }
-        h2 { margin-top: 38px; font-size: 1.55rem; border-left: 5px solid var(--primary); padding-left: 14px; }
-        h3 { color: #4338ca; margin-top: 25px; }
-        p, li { color: var(--muted); }
-        a { color: #4338ca; }
-        .notice { background: #eef2ff; border-left: 5px solid var(--primary); padding: 16px 18px; border-radius: 8px; }
+        main { max-width: 1050px; margin: 32px auto; padding: 0 22px; }
+        .card { background: var(--surface); border-radius: 16px; padding: clamp(24px, 5vw, 56px); box-shadow: 0 14px 45px rgba(15,23,42,.22); }
+        h1 { margin: 0 0 8px; color: var(--dark); font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.15; }
+        h2 { margin-top: 38px; color: var(--dark); font-size: 1.65rem; }
+        h3 { color: #4338ca; margin-bottom: 4px; }
+        p { color: var(--muted); }
+        .lead { font-size: 1.25rem; color: #334155; margin-top: 0; }
+        .notice { background: #eef2ff; border-left: 5px solid var(--primary); padding: 18px 20px; border-radius: 8px; margin: 28px 0; }
+        .notice p { margin: 0; color: #1e293b; }
         table { width: 100%; border-collapse: collapse; margin: 18px 0; }
         th, td { border: 1px solid #cbd5e1; padding: 12px; vertical-align: top; text-align: left; }
         th { background: #e0e7ff; color: var(--dark); }
+        .links { margin-top: 34px; padding-top: 22px; border-top: 1px solid #cbd5e1; }
+        a { color: #4338ca; }
         footer { text-align: center; color: #e0e7ff; padding: 0 20px 30px; }
         @media (max-width: 650px) { .nav-inner { align-items: flex-start; flex-direction: column; padding-top: 14px; padding-bottom: 14px; } nav ul { flex-wrap: wrap; gap: 10px 16px; } table { font-size: .92rem; } }
     </style>
@@ -47,73 +54,77 @@
 </nav>
 
 <main>
-<article>
-    <h1>Kebijakan Privasi ESchedulle</h1>
-    <p><strong>Terakhir diperbarui: 10 Oktober 2026</strong></p>
+    <article class="card">
+        <header>
+            <h1>Kebijakan Privasi ESchedulle</h1>
+            <p class="lead"><strong>Terakhir diperbarui: 10 Oktober 2026</strong></p>
+        </header>
 
-    <div class="notice">
-        <p><strong>Ringkasan:</strong> ESchedulle adalah aplikasi Android untuk jadwal, pengingat, alarm, timer, dan tugas. Data jadwal serta tugas disimpan di perangkat secara default. Jika Anda memilih fitur Google, data yang diperlukan untuk login dan pencadangan diproses oleh layanan Google sesuai izin yang Anda berikan.</p>
-    </div>
+        <div class="notice">
+            <p><strong>Ringkasan:</strong> ESchedulle adalah aplikasi Android untuk jadwal, pengingat, alarm, timer, dan tugas. Data jadwal serta tugas disimpan di perangkat secara default. Jika Anda memilih fitur Google, data yang diperlukan untuk login dan pencadangan diproses oleh layanan Google sesuai izin yang Anda berikan.</p>
+        </div>
 
-    <h2>1. Ruang lingkup dan pengelola</h2>
-    <p>Kebijakan ini berlaku untuk aplikasi Android <strong>ESchedulle</strong> dan situs <a href="https://eschedulle.online">https://eschedulle.online</a>. Pengelola aplikasi adalah Eriwandi Studio. Jika Anda memiliki pertanyaan atau permintaan terkait data pribadi, hubungi <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a>.</p>
+        <h2>1. Ruang lingkup dan pengelola</h2>
+        <p>Kebijakan ini berlaku untuk aplikasi Android <strong>ESchedulle</strong> dan situs <a href="https://eschedulle.online">https://eschedulle.online</a>. Pengelola aplikasi adalah Eriwandi Studio. Jika Anda memiliki pertanyaan atau permintaan terkait data pribadi, hubungi <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a>.</p>
 
-    <h2>2. Data yang digunakan dan alasan penggunaannya</h2>
-    <table>
-        <thead><tr><th>Jenis data</th><th>Sumber</th><th>Tujuan penggunaan</th></tr></thead>
-        <tbody>
-            <tr><td>Alamat email akun Google</td><td>Google Sign-In, hanya setelah Anda memilih login</td><td>Mengenali akun yang sedang digunakan, menghubungkan data dengan sesi akun, dan menjalankan fitur Google Drive.</td></tr>
-            <tr><td>Jadwal, waktu, pengulangan, catatan, tugas, status tugas, serta pengaturan aplikasi</td><td>Data yang Anda masukkan atau buat di ESchedulle</td><td>Menampilkan agenda, menjalankan timer, membuat pengingat, dan memulihkan data dari backup.</td></tr>
-            <tr><td>Data backup ESchedulle</td><td>Dibuat saat Anda memilih backup atau sinkronisasi</td><td>Disimpan di folder aplikasi Google Drive (<code>appDataFolder</code>) agar dapat dipulihkan pada perangkat lain yang menggunakan akun Google Anda.</td></tr>
-            <tr><td>Data pembelian</td><td>Google Play Billing</td><td>Memproses dan memulihkan pembelian satu kali untuk menghapus iklan. Detail pembayaran dikelola oleh Google Play; ESchedulle tidak menerima nomor kartu pembayaran.</td></tr>
-            <tr><td>Data iklan dan penggunaan aplikasi</td><td>Google AdMob dan SDK terkait, sesuai izin/consent yang berlaku</td><td>Memuat dan mengukur iklan, mencegah penyalahgunaan, serta menyediakan pilihan privasi iklan. Jenis data dapat mencakup informasi perangkat, alamat IP atau perkiraan lokasi, pengenal iklan, interaksi iklan, dan data diagnostik sesuai kebijakan Google.</td></tr>
-        </tbody>
-    </table>
-    <p>ESchedulle tidak meminta izin kontak, lokasi, atau kamera. Jika Anda memilih file suara atau gambar melalui pemilih file Android, aplikasi menggunakan file yang Anda pilih untuk fitur alarm; file tersebut tetap berada di perangkat dan tidak menjadi bagian dari backup cloud aplikasi.</p>
+        <h2>2. Data yang digunakan dan alasan penggunaannya</h2>
+        <table>
+            <thead><tr><th>Jenis data</th><th>Sumber</th><th>Tujuan penggunaan</th></tr></thead>
+            <tbody>
+                <tr><td>Alamat email akun Google</td><td>Google Sign-In, hanya setelah Anda memilih login</td><td>Mengenali akun yang sedang digunakan, menghubungkan data dengan sesi akun, dan menjalankan fitur Google Drive.</td></tr>
+                <tr><td>Jadwal, waktu, pengulangan, catatan, tugas, status tugas, serta pengaturan aplikasi</td><td>Data yang Anda masukkan atau buat di ESchedulle</td><td>Menampilkan agenda, menjalankan timer, membuat pengingat, dan memulihkan data dari backup.</td></tr>
+                <tr><td>Data backup ESchedulle</td><td>Dibuat saat Anda memilih backup atau sinkronisasi</td><td>Disimpan di folder aplikasi Google Drive (<code>appDataFolder</code>) agar dapat dipulihkan pada perangkat lain yang menggunakan akun Google Anda.</td></tr>
+                <tr><td>Data pembelian</td><td>Google Play Billing</td><td>Memproses dan memulihkan pembelian satu kali untuk menghapus iklan. Detail pembayaran dikelola oleh Google Play; ESchedulle tidak menerima nomor kartu pembayaran.</td></tr>
+                <tr><td>Data iklan dan penggunaan aplikasi</td><td>Google AdMob dan SDK terkait, sesuai izin/consent yang berlaku</td><td>Memuat dan mengukur iklan, mencegah penyalahgunaan, serta menyediakan pilihan privasi iklan. Jenis data dapat mencakup informasi perangkat, alamat IP atau perkiraan lokasi, pengenal iklan, interaksi iklan, dan data diagnostik sesuai kebijakan Google.</td></tr>
+            </tbody>
+        </table>
+        <p>ESchedulle tidak meminta izin kontak, lokasi, atau kamera. Jika Anda memilih file suara atau gambar melalui pemilih file Android, aplikasi menggunakan file yang Anda pilih untuk fitur alarm; file tersebut tetap berada di perangkat dan tidak menjadi bagian dari backup cloud aplikasi.</p>
 
-    <h2>3. Google Sign-In dan Google Drive</h2>
-    <p>Login Google bersifat opsional untuk penggunaan dasar. Saat Anda login, ESchedulle meminta alamat email melalui Google Sign-In. Saat Anda memilih untuk menghubungkan Drive, aplikasi meminta scope <code>https://www.googleapis.com/auth/drive.appdata</code>. Scope ini digunakan untuk membuat, membaca, memperbarui, dan menghapus backup ESchedulle di ruang data aplikasi Google Drive.</p>
-    <p>ESchedulle tidak membaca atau mengubah dokumen umum di Google Drive Anda untuk fitur backup ini. Isi backup diproses hanya untuk menyediakan backup dan pemulihan jadwal, tugas, dan pengaturan yang Anda minta. Google dapat memproses data sesuai <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Kebijakan Privasi Google</a>.</p>
+        <h2>3. Google Sign-In dan Google Drive</h2>
+        <p>Login Google bersifat opsional untuk penggunaan dasar. Saat Anda login, ESchedulle meminta alamat email melalui Google Sign-In. Saat Anda memilih untuk menghubungkan Drive, aplikasi meminta scope <code>https://www.googleapis.com/auth/drive.appdata</code>. Scope ini digunakan untuk membuat, membaca, memperbarui, dan menghapus backup ESchedulle di ruang data aplikasi Google Drive.</p>
+        <p>ESchedulle tidak membaca atau mengubah dokumen umum di Google Drive Anda untuk fitur backup ini. Isi backup diproses hanya untuk menyediakan backup dan pemulihan jadwal, tugas, dan pengaturan yang Anda minta. Google dapat memproses data sesuai <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Kebijakan Privasi Google</a>.</p>
 
-    <h2>4. Penyimpanan lokal, notifikasi, dan alarm</h2>
-    <p>Jadwal, tugas, preferensi, serta status pengingat disimpan di penyimpanan aplikasi pada perangkat. Notifikasi, alarm tepat waktu, alarm layar penuh, widget, dan layanan latar belakang diproses oleh Android berdasarkan izin dan pengaturan perangkat. Data ini tidak dikirim ke pengelola hanya karena notifikasi atau alarm digunakan.</p>
+        <h2>4. Penyimpanan lokal, notifikasi, dan alarm</h2>
+        <p>Jadwal, tugas, preferensi, serta status pengingat disimpan di penyimpanan aplikasi pada perangkat. Notifikasi, alarm tepat waktu, alarm layar penuh, widget, dan layanan latar belakang diproses oleh Android berdasarkan izin dan pengaturan perangkat. Data ini tidak dikirim ke pengelola hanya karena notifikasi atau alarm digunakan.</p>
 
-    <h2>5. Layanan pihak ketiga</h2>
-    <ul>
-        <li><strong>Google Sign-In:</strong> autentikasi akun dan alamat email yang Anda izinkan.</li>
-        <li><strong>Google Drive API:</strong> backup dan restore di <code>appDataFolder</code> setelah Anda menghubungkan Drive.</li>
-        <li><strong>Google AdMob dan User Messaging Platform:</strong> iklan, pengukuran iklan, dan pengelolaan consent/opsi privasi iklan.</li>
-        <li><strong>Google Play Billing:</strong> pembelian serta pemulihan fitur hapus iklan.</li>
-        <li><strong>Firebase Analytics SDK:</strong> aplikasi menyertakan SDK analitik untuk informasi penggunaan dan diagnostik aplikasi, bila pengumpulan analitik diaktifkan. SDK ini tidak digunakan untuk menyimpan backup Google Drive.</li>
-    </ul>
-    <p>ESchedulle tidak menjual data pribadi Anda. Layanan pihak ketiga dapat memproses data sesuai kebijakan mereka dan konfigurasi consent yang berlaku di wilayah Anda.</p>
+        <h2>5. Layanan pihak ketiga</h2>
+        <ul>
+            <li><strong>Google Sign-In:</strong> autentikasi akun dan alamat email yang Anda izinkan.</li>
+            <li><strong>Google Drive API:</strong> backup dan restore di <code>appDataFolder</code> setelah Anda menghubungkan Drive.</li>
+            <li><strong>Google AdMob dan User Messaging Platform:</strong> iklan, pengukuran iklan, dan pengelolaan consent/opsi privasi iklan.</li>
+            <li><strong>Google Play Billing:</strong> pembelian serta pemulihan fitur hapus iklan.</li>
+            <li><strong>Firebase Analytics SDK:</strong> aplikasi menyertakan SDK analitik untuk informasi penggunaan dan diagnostik aplikasi, bila pengumpulan analitik diaktifkan. SDK ini tidak digunakan untuk menyimpan backup Google Drive.</li>
+        </ul>
+        <p>ESchedulle tidak menjual data pribadi Anda. Layanan pihak ketiga dapat memproses data sesuai kebijakan mereka dan konfigurasi consent yang berlaku di wilayah Anda.</p>
 
-    <h2>6. Berbagi data dan keamanan</h2>
-    <p>Data hanya dibagikan kepada layanan pihak ketiga yang diperlukan untuk fungsi yang Anda pilih, seperti login Google, backup Drive, iklan, analitik, dan pembelian Google Play. Transfer data jaringan menggunakan HTTPS/TLS jika didukung oleh layanan terkait. Token akses Google digunakan untuk permintaan yang diperlukan dan tidak ditampilkan kepada pengguna lain. Tidak ada metode transmisi atau penyimpanan yang dapat dijamin 100% aman, sehingga Anda juga harus menjaga keamanan akun Google dan perangkat Anda.</p>
+        <h2>6. Berbagi data dan keamanan</h2>
+        <p>Data hanya dibagikan kepada layanan pihak ketiga yang diperlukan untuk fungsi yang Anda pilih, seperti login Google, backup Drive, iklan, analitik, dan pembelian Google Play. Transfer data jaringan menggunakan HTTPS/TLS jika didukung oleh layanan terkait. Token akses Google digunakan untuk permintaan yang diperlukan dan tidak ditampilkan kepada pengguna lain. Tidak ada metode transmisi atau penyimpanan yang dapat dijamin 100% aman, sehingga Anda juga harus menjaga keamanan akun Google dan perangkat Anda.</p>
 
-    <h2>7. Penghapusan dan kontrol data</h2>
-    <ul>
-        <li>Anda dapat mengubah atau menghapus jadwal dan tugas dari dalam aplikasi.</li>
-        <li>Anda dapat logout dari Google melalui halaman akun/profil ESchedulle.</li>
-        <li>Anda dapat menghapus backup Google Drive melalui pilihan pengelolaan sinkronisasi di aplikasi atau melalui akun Google Anda.</li>
-        <li>Anda dapat menghapus data lokal melalui pengaturan Android atau dengan menghapus aplikasi. Backup di Google Drive tidak otomatis terhapus saat aplikasi di-uninstall.</li>
-        <li>Untuk meminta penghapusan data yang masih diproses oleh pengelola, kirim email ke <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a>. Jelaskan akun atau data yang ingin dihapus; kami dapat meminta verifikasi kepemilikan akun.</li>
-        <li>Untuk data yang dikelola Google AdMob, Google Analytics, Google Drive, atau Google Play, gunakan juga kontrol dan prosedur penghapusan yang disediakan oleh Google.</li>
-    </ul>
+        <h2>7. Penghapusan dan kontrol data</h2>
+        <ul>
+            <li>Anda dapat mengubah atau menghapus jadwal dan tugas dari dalam aplikasi.</li>
+            <li>Anda dapat logout dari Google melalui halaman akun/profil ESchedulle.</li>
+            <li>Anda dapat menghapus backup Google Drive melalui pilihan pengelolaan sinkronisasi di aplikasi atau melalui akun Google Anda.</li>
+            <li>Anda dapat menghapus data lokal melalui pengaturan Android atau dengan menghapus aplikasi. Backup di Google Drive tidak otomatis terhapus saat aplikasi di-uninstall.</li>
+            <li>Untuk meminta penghapusan data yang masih diproses oleh pengelola, kirim email ke <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a>. Jelaskan akun atau data yang ingin dihapus; kami dapat meminta verifikasi kepemilikan akun.</li>
+            <li>Untuk data yang dikelola Google AdMob, Google Analytics, Google Drive, atau Google Play, gunakan juga kontrol dan prosedur penghapusan yang disediakan oleh Google.</li>
+        </ul>
 
-    <h2>8. Retensi data</h2>
-    <p>Data lokal disimpan sampai Anda menghapusnya atau menghapus data aplikasi. Backup Drive disimpan sampai Anda menghapusnya atau meminta penghapusannya. Alamat email yang tersimpan untuk sesi aplikasi dihapus ketika Anda logout atau menghapus data aplikasi, dengan kemungkinan salinan yang masih berada pada layanan Google mengikuti kebijakan retensi Google.</p>
+        <h2>8. Retensi data</h2>
+        <p>Data lokal disimpan sampai Anda menghapusnya atau menghapus data aplikasi. Backup Drive disimpan sampai Anda menghapusnya atau meminta penghapusannya. Alamat email yang tersimpan untuk sesi aplikasi dihapus ketika Anda logout atau menghapus data aplikasi, dengan kemungkinan salinan yang masih berada pada layanan Google mengikuti kebijakan retensi Google.</p>
 
-    <h2>9. Anak-anak</h2>
-    <p>ESchedulle adalah aplikasi produktivitas umum dan tidak ditujukan untuk mengumpulkan data anak-anak secara sengaja. Jika Anda yakin seorang anak telah memberikan data pribadi tanpa izin yang sesuai, hubungi kami melalui email di atas.</p>
+        <h2>9. Anak-anak</h2>
+        <p>ESchedulle adalah aplikasi produktivitas umum dan tidak ditujukan untuk mengumpulkan data anak-anak secara sengaja. Jika Anda yakin seorang anak telah memberikan data pribadi tanpa izin yang sesuai, hubungi kami melalui email di atas.</p>
 
-    <h2>10. Perubahan kebijakan</h2>
-    <p>Kami dapat memperbarui kebijakan ini ketika fitur, layanan, atau kewajiban hukum berubah. Versi terbaru akan dipublikasikan di halaman ini bersama tanggal pembaruan.</p>
+        <h2>10. Perubahan kebijakan</h2>
+        <p>Kami dapat memperbarui kebijakan ini ketika fitur, layanan, atau kewajiban hukum berubah. Versi terbaru akan dipublikasikan di halaman ini bersama tanggal pembaruan.</p>
 
-    <h2>11. Kontak</h2>
-    <p>Email: <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a><br>Website: <a href="https://eschedulle.online">https://eschedulle.online</a></p>
-</article>
+        <section class="links" aria-labelledby="contact-title">
+            <h2 id="contact-title">11. Kontak</h2>
+            <p>Email: <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a><br>Website: <a href="https://eschedulle.online">https://eschedulle.online</a></p>
+        </section>
+    </article>
 </main>
-<footer>Kebijakan Privasi ESchedulle | Terakhir diperbarui: 10 Oktober 2026</footer>
+<footer>ESchedulle - Kebijakan Privasi | Terakhir diperbarui: 10 Oktober 2026</footer>
 </body>
 </html>

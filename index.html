@@ -1,528 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="c56CREK9O6HxNT9DqBu6PlbN7Rr0C5ZL-nWPcE5cbIQ" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESchedulle - Aplikasi Jadwal & Manajemen Tugas Pintar</title>
-
-    <!-- Favicon tetap menggunakan favicon.png -->
-    <link rel="icon" href="favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ESchedulle adalah aplikasi Android untuk mengatur jadwal, pengingat, alarm, timer, dan daftar tugas harian.">
+    <link rel="canonical" href="https://eschedulle.online/">
+    <meta property="og:title" content="ESchedulle - Planner, Reminder, and Task Manager">
+    <meta property="og:description" content="Atur jadwal, alarm, timer, dan tugas harian dengan ESchedulle.">
+    <meta property="og:url" content="https://eschedulle.online/">
+    <meta property="og:type" content="website">
+    <title>ESchedulle - Planner, Reminder, and Task Manager</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            padding-top: 100px;
-        }
-
-        /* Navbar */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 0 20px;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        /* Logo ESchedulle */
-        .nav-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1.5em;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        /* Ikon logo dari ic.png */
-        .nav-logo-icon {
-            width: 28px;
-            height: 28px;
-            object-fit: contain;
-            flex-shrink: 0;
-            -webkit-text-fill-color: initial;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            position: relative;
-            padding: 8px 12px;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: #667eea;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #667eea;
-            margin: 5px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(10px, 10px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            z-index: 999;
-        }
-
-        .scroll-to-top.show {
-            display: flex;
-        }
-
-        .es-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            padding: 50px;
-        }
-
-        .es-divider {
-            margin: 40px 0;
-            border-top: 2px solid #ddd;
-        }
-
-        .es-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        .es-card {
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .es-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .es-card img {
-            width: 100%;
-            max-width: 350px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .es-card img:hover {
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        .es-card a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .es-caption {
-            margin-top: 12px;
-            font-size: 0.95em;
-            color: #666;
-            font-weight: 500;
-        }
-
-        h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin: 20px 0;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 15px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin: 30px 0 15px 0;
-            border-left: 5px solid #667eea;
-            padding-left: 15px;
-        }
-
-        h3 {
-            color: #764ba2;
-            font-size: 1.3em;
-            margin: 25px 0 12px 0;
-        }
-
-        p {
-            margin: 15px 0;
-            text-align: justify;
-            color: #555;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        a {
-            color: #667eea;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
-
-        .footer {
-            border-top: 2px solid #ddd;
-            margin-top: 40px;
-            padding-top: 20px;
-            text-align: center;
-            color: #888;
-            font-size: 0.95em;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                gap: 0;
-                padding: 20px 0;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-link {
-                display: block;
-                padding: 15px;
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            .nav-link::after {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .es-container { padding: 25px; }
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.4em; }
-            .es-grid { gap: 20px; }
-        }
+        :root { --primary: #536dfe; --dark: #172554; --muted: #475569; --surface: #fff; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.7; color: #1e293b; background: linear-gradient(135deg, #536dfe, #7c3aed); }
+        nav { position: sticky; top: 0; z-index: 2; background: rgba(255,255,255,.97); box-shadow: 0 2px 14px rgba(15,23,42,.15); }
+        .nav-inner { max-width: 1050px; min-height: 64px; margin: auto; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .brand { color: var(--dark); text-decoration: none; font-size: 1.35rem; font-weight: 700; white-space: nowrap; }
+        nav ul { display: flex; gap: 20px; list-style: none; padding: 0; margin: 0; }
+        nav a { color: #334155; text-decoration: none; font-weight: 600; }
+        nav a:hover, nav a:focus { color: var(--primary); text-decoration: underline; }
+        main { max-width: 1050px; margin: 32px auto; padding: 0 22px; }
+        .card { background: var(--surface); border-radius: 16px; padding: clamp(24px, 5vw, 56px); box-shadow: 0 14px 45px rgba(15,23,42,.22); }
+        h1 { margin: 0 0 8px; color: var(--dark); font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.15; }
+        h2 { margin-top: 38px; color: var(--dark); font-size: 1.65rem; }
+        h3 { color: #4338ca; margin-bottom: 4px; }
+        p { color: var(--muted); }
+        .lead { font-size: 1.25rem; color: #334155; margin-top: 0; }
+        .purpose { background: #eef2ff; border-left: 5px solid var(--primary); padding: 18px 20px; border-radius: 8px; margin: 28px 0; }
+        .purpose p { margin: 0; color: #1e293b; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; padding: 0; list-style: none; }
+        .features li { border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; background: #f8fafc; }
+        .features strong { display: block; color: #312e81; margin-bottom: 4px; }
+        .links { margin-top: 34px; padding-top: 22px; border-top: 1px solid #cbd5e1; }
+        a { color: #4338ca; }
+        footer { text-align: center; color: #e0e7ff; padding: 0 20px 30px; }
+        @media (max-width: 650px) { .nav-inner { align-items: flex-start; flex-direction: column; padding-top: 14px; padding-bottom: 14px; } nav ul { flex-wrap: wrap; gap: 10px 16px; } }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "ESchedulle",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Android",
+      "description": "ESchedulle adalah aplikasi Android untuk mengatur jadwal, pengingat, alarm, timer, dan daftar tugas.",
+      "url": "https://eschedulle.online/",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.eriwandi.eschedulle"
+    }
+    </script>
 </head>
-
 <body>
-
-<nav>
-    <div class="nav-container">
-
-        <!-- Logo navbar menggunakan ic.png -->
-        <a href="index.html" class="nav-logo">
-            <img src="./ic.png" alt="Logo ESchedulle" class="nav-logo-icon">
-            <span>ESchedulle</span>
-        </a>
-
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link active" id="nav-home">Home</a></li>
-            <li><a href="privacy-policy.html" class="nav-link" id="nav-privacy">Privasi</a></li>
-            <li><a href="terms-of-service.html" class="nav-link" id="nav-tos">Syarat & Ketentuan</a></li>
+<nav aria-label="Navigasi utama">
+    <div class="nav-inner">
+        <a class="brand" href="index.html">ESchedulle</a>
+        <ul>
+            <li><a href="index.html" aria-current="page">Beranda</a></li>
+            <li><a href="privacy-policy.html">Kebijakan Privasi</a></li>
+            <li><a href="terms-of-service.html">Syarat &amp; Ketentuan</a></li>
         </ul>
-
-        <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
     </div>
 </nav>
 
-<div class="es-container">
+<main>
+    <article class="card">
+        <header>
+            <h1>ESchedulle</h1>
+            <p class="lead"><strong>Planner, reminder, and task manager untuk Android.</strong></p>
+        </header>
 
-<h1 class="center">ESchedulle</h1>
-<p class="center"><strong>Aplikasi Jadwal & Manajemen Tugas Pintar</strong></p>
-<p class="center">Atur jadwal Anda dengan mudah, tingkatkan produktivitas, raih kesuksesan</p>
+        <section class="purpose" aria-labelledby="purpose-title">
+            <h2 id="purpose-title">Tujuan aplikasi</h2>
+            <p><strong>ESchedulle adalah aplikasi Android untuk membantu pengguna mengatur jadwal kegiatan, mengingat waktu penting, menjalankan alarm, menggunakan timer hitung mundur, dan mengelola daftar tugas harian.</strong> Aplikasi ini dibuat untuk membantu perencanaan waktu pribadi, sekolah, pekerjaan, rapat, olahraga, rutinitas berulang, dan kegiatan keluarga.</p>
+        </section>
 
-<div class="es-divider"></div>
+        <section aria-labelledby="features-title">
+            <h2 id="features-title">Fitur utama ESchedulle</h2>
+            <ul class="features">
+                <li><strong>Jadwal dan kalender</strong>Buat kegiatan sekali jalan atau berulang dan atur hari serta waktunya.</li>
+                <li><strong>Pengingat dan alarm</strong>Dapatkan notifikasi, alarm layar penuh, suara alarm, dan latar alarm yang dapat disesuaikan.</li>
+                <li><strong>Timer hitung mundur</strong>Lihat waktu tersisa menuju kegiatan berikutnya secara langsung.</li>
+                <li><strong>Daftar tugas</strong>Buat, tandai selesai, dan kelola tugas atau catatan harian.</li>
+                <li><strong>Widget layar utama</strong>Lihat kegiatan berikutnya dan tugas dari home screen Android.</li>
+                <li><strong>Google Drive</strong>Cadangkan dan pulihkan jadwal, tugas, serta pengaturan secara opsional melalui akun Google.</li>
+                <li><strong>Personalisasi</strong>Gunakan tema, bahasa, suara, dan tampilan yang sesuai kebutuhan Anda.</li>
+                <li><strong>Monetisasi transparan</strong>Aplikasi dapat menampilkan iklan; pembelian satu kali tersedia untuk menghapus iklan.</li>
+            </ul>
+        </section>
 
-<h2>🎯 Selamat Datang di ESchedulle</h2>
-<p>
-<strong>ESchedulle</strong> adalah aplikasi Android pintar yang dirancang khusus untuk membantu Anda mengelola jadwal rutinitas,
-kegiatan harian, alarm pengingat, dan daftar tugas (To-Do) secara presisi dan efisien.
-</p>
+        <section aria-labelledby="how-title">
+            <h2 id="how-title">Cara kerja singkat</h2>
+            <p>Data jadwal dan tugas dapat digunakan secara lokal di perangkat. Pengguna dapat memilih masuk dengan Google untuk menghubungkan fitur pencadangan Google Drive. Login dan pencadangan Google bersifat opsional untuk penggunaan dasar aplikasi. Notifikasi dan alarm berjalan melalui fitur Android setelah izin yang diperlukan diberikan.</p>
+        </section>
 
-<div class="es-divider"></div>
+        <section aria-labelledby="privacy-title">
+            <h2 id="privacy-title">Privasi dan keamanan</h2>
+            <p>ESchedulle menjelaskan data yang digunakan, tujuan penggunaannya, layanan pihak ketiga, serta cara menghapus data dalam <a href="privacy-policy.html">Kebijakan Privasi</a>. Untuk ketentuan penggunaan, baca <a href="terms-of-service.html">Syarat &amp; Ketentuan</a>.</p>
+        </section>
 
-<h2>🔑 Otentikasi & Integrasi Akun Google</h2>
-<p>
-Aplikasi <strong>ESchedulle</strong> menggunakan Google Sign-In (OAuth 2.0) untuk mengidentifikasi pengguna secara aman. Integrasi ini memungkinkan Anda untuk:
-</p>
-<ul>
-    <li>Melakukan login dengan cepat tanpa perlu mengingat kata sandi baru.</li>
-    <li>Mencadangkan dan menyinkronkan data jadwal serta pengingat harian secara otomatis ke cloud server secara aman.</li>
-    <li>Memastikan data rutinitas Anda tetap aman dan dapat diakses saat berganti perangkat Android.</li>
-</ul>
-
-<div class="es-divider"></div>
-
-<h2>✨ Fitur Utama</h2>
-
-<h3>📅 Timer Countdown Interaktif</h3>
-<p>Countdown visual dengan animasi smooth untuk memantau waktu tersisa secara real-time.</p>
-
-<div class="es-grid">
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6-hTtmbYHHwwKSNrH04xxSM0Pn7Zdn8lb2aomz9B49VAblJIdFOZxgkcF8Yx3_nEW0to3CA3oNr_Q4DeTzj9c6jwzgyPscOGIeyAlJpivGKxWg2nQSAx6eo5cP-cpjN4TOk02BgY391Llc945Z7AahwXsMm5yRsHO-sDc68y_iNvjVktevxUyR07LIkg/s1600/Home.jpg" target="_blank">
-        <img alt="Home" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6-hTtmbYHHwwKSNrH04xxSM0Pn7Zdn8lb2aomz9B49VAblJIdFOZxgkcF8Yx3_nEW0to3CA3oNr_Q4DeTzj9c6jwzgyPscOGIeyAlJpivGKxWg2nQSAx6eo5cP-cpjN4TOk02BgY391Llc945Z7AahwXsMm5yRsHO-sDc68y_iNvjVktevxUyR07LIkg/s1600/Home.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Layar Utama dengan Timer Countdown Besar dan Kecil</div>
-  </div>
-
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNrACUPy5DKzIdUNPmAd8j3VsnLiEslGuJ-q8WUXMmAPV4_mpy5IcEAzQlPPRu1tB0oSkDUOHLU6tCCNzwOj0XjbKY6RQnHuW4kmTE9LNU5z_o7nXiUAqCkZb8uIlPKP4KREQIRSMUV0HHLjyyW84pjRliHzC99A2Jqad08HQ-DfYTEdi3pnj8aon9fek/s1600/Alarm%20full%20screen.jpg" target="_blank">
-        <img alt="Alarm full screen" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNrACUPy5DKzIdUNPmAd8j3VsnLiEslGuJ-q8WUXMmAPV4_mpy5IcEAzQlPPRu1tB0oSkDUOHLU6tCCNzwOj0XjbKY6RQnHuW4kmTE9LNU5z_o7nXiUAqCkZb8uIlPKP4KREQIRSMUV0HHLjyyW84pjRliHzC99A2Jqad08HQ-DfYTEdi3pnj8aon9fek/s1600/Alarm%20full%20screen.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Alarm Full Screen Tidak Bisa Terlewatkan</div>
-  </div>
-</div>
-
-<h3>✓ Manajemen Tugas (To-Do)</h3>
-<p>Kelola tugas harian, mingguan, dan bulanan dengan status selesai dan belum selesai.</p>
-
-<div class="es-grid">
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6K2DPjMSzmnoBDy2eWLHXOJvUENy6ldYeJ7923qAuiBqDonfZkaR3jzpo00IlscfwMAjyDoQ3hBdQwnzwo5AiL1R0Qjw5XineyKDCzl39mrauzKWT4QeAetq9oxw9EtWVT3EEoHt__Jz8ID29Jmb9Yvtxgmd2FInzLjlc6nnck4KX978p_DGnJ89_eJM/s1600/Daftar%20tugas.jpg" target="_blank">
-        <img alt="Daftar tugas" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6K2DPjMSzmnoBDy2eWLHXOJvUENy6ldYeJ7923qAuiBqDonfZkaR3jzpo00IlscfwMAjyDoQ3hBdQwnzwo5AiL1R0Qjw5XineyKDCzl39mrauzKWT4QeAetq9oxw9EtWVT3EEoHt__Jz8ID29Jmb9Yvtxgmd2FInzLjlc6nnck4KX978p_DGnJ89_eJM/s1600/Daftar%20tugas.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Layar To-Do dengan Status Tugas</div>
-  </div>
-
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjjldb1vknFzmKVeQ-w9lgtFPvLgQa-pNoby0lD1pF4XzCnOaWwLM8Di9IwEfx27vdRxKeQYf6HguzJ2SW70ZLiWehtFWRR-On7F-JLJnTDQaa9_h0gDCo2RzYs0x08qBydInW7yKioeRaCCb3IJNd8J4bt0D2OwqytPnEVSXwTFqK2taebUIto82zqNo/s1600/Tambah%20tugas.jpg" target="_blank">
-        <img alt="Tambah tugas" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjjldb1vknFzmKVeQ-w9lgtFPvLgQa-pNoby0lD1pF4XzCnOaWwLM8Di9IwEfx27vdRxKeQYf6HguzJ2SW70ZLiWehtFWRR-On7F-JLJnTDQaa9_h0gDCo2RzYs0x08qBydInW7yKioeRaCCb3IJNd8J4bt0D2OwqytPnEVSXwTFqK2taebUIto82zqNo/s1600/Tambah%20tugas.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Buat Tugas Baru</div>
-  </div>
-</div>
-
-<div class="es-divider"></div>
-
-<h2>🔔 Alarm & Notifikasi Full Screen</h2>
-<p>
-Notifikasi layar penuh tetap muncul meskipun perangkat terkunci atau dalam mode sleep.
-</p>
-
-<div class="es-grid">
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNrACUPy5DKzIdUNPmAd8j3VsnLiEslGuJ-q8WUXMmAPV4_mpy5IcEAzQlPPRu1tB0oSkDUOHLU6tCCNzwOj0XjbKY6RQnHuW4kmTE9LNU5z_o7nXiUAqCkZb8uIlPKP4KREQIRSMUV0HHLjyyW84pjRliHzC99A2Jqad08HQ-DfYTEdi3pnj8aon9fek/s1600/Alarm%20full%20screen.jpg" target="_blank">
-        <img alt="Alarm full screen" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNrACUPy5DKzIdUNPmAd8j3VsnLiEslGuJ-q8WUXMmAPV4_mpy5IcEAzQlPPRu1tB0oSkDUOHLU6tCCNzwOj0XjbKY6RQnHuW4kmTE9LNU5z_o7nXiUAqCkZb8uIlPKP4KREQIRSMUV0HHLjyyW84pjRliHzC99A2Jqad08HQ-DfYTEdi3pnj8aon9fek/s1600/Alarm%20full%20screen.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Alarm Full Screen Tidak Bisa Terlewatkan</div>
-  </div>
-
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqCnUIqmH2V1ivPsSysP8DWxS-G9QDtUwLGvGkuoMoswlyx-qieT8PhaouCVfoP3j5yCQrQNokY5vYBsb-AxoZMyiG1JhLiOsTK2BRqi1Z2DjPqXnZsFr-GCMPB-hjHvcE4JE7xaJkWDfQ3G0Kox_aEr3Dm-7WL7B5fxVhZGkj8wSHRZO4e28tMPTkBzY/s1600/Notifikasi.jpg" target="_blank">
-        <img alt="Notifikasi" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqCnUIqmH2V1ivPsSysP8DWxS-G9QDtUwLGvGkuoMoswlyx-qieT8PhaouCVfoP3j5yCQrQNokY5vYBsb-AxoZMyiG1JhLiOsTK2BRqi1Z2DjPqXnZsFr-GCMPB-hjHvcE4JE7xaJkWDfQ3G0Kox_aEr3Dm-7WL7B5fxVhZGkj8wSHRZO4e28tMPTkBzY/s1600/Notifikasi.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Notifikasi Tepat Waktu untuk Setiap Jadwal</div>
-  </div>
-</div>
-
-<div class="es-divider"></div>
-
-<h2>⚙️ Pengaturan & Personalisasi</h2>
-<p>
-Sesuaikan bahasa, tema, suara alarm, dan sinkronisasi cloud sesuai kebutuhan Anda.
-</p>
-
-<div class="es-grid">
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzKrwEDJrWRTYtGAWHjhqwsGrCkp5UBNprkKYXhhubGFjfsGa5EaHA_04YjCe9wgBgdLaG8b5i7h2YyGKGsiz1MBFJ8C0tkw6m4q-49dyE0tjkpGdE0USBzJjUnQmSgYwy5tprJmZ1lMeGwJVsrfObynwxmD2z3W26rKGp5v9SaXL6H5QsLk28TKJqMRQ/s1600/Setingan%20tampilan%20dan%20suara.jpg" target="_blank">
-        <img alt="Setingan tampilan dan suara" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzKrwEDJrWRTYtGAWHjhqwsGrCkp5UBNprkKYXhhubGFjfsGa5EaHA_04YjCe9wgBgdLaG8b5i7h2YyGKGsiz1MBFJ8C0tkw6m4q-49dyE0tjkpGdE0USBzJjUnQmSgYwy5tprJmZ1lMeGwJVsrfObynwxmD2z3W26rKGp5v9SaXL6H5QsLk28TKJqMRQ/s1600/Setingan%20tampilan%20dan%20suara.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Halaman Pengaturan Aplikasi</div>
-  </div>
-
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaPLWJEUmuTWF0rJp-eGzJVWxpkxz4lt1CceY2bxG3UM8w_ZDhms2Z03t5xNKBufByGEpAw-CJ03_trQ5TcVJNgMzd7oNAKSNDrq3ezuKpF8nXh-c00qhPm0_ZNL13K7yzstZ7Shtt7QsTMn9h6N0H2BO-yH-0fhAnjdYDeCpXWoy7Nj2xNF5tG6Mmml0/s1600/Pilih%20hari%20spesifik.jpg" target="_blank">
-        <img alt="Pilih hari spesifik" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaPLWJEUmuTWF0rJp-eGzJVWxpkxz4lt1CceY2bxG3UM8w_ZDhms2Z03t5xNKBufByGEpAw-CJ03_trQ5TcVJNgMzd7oNAKSNDrq3ezuKpF8nXh-c00qhPm0_ZNL13K7yzstZ7Shtt7QsTMn9h6N0H2BO-yH-0fhAnjdYDeCpXWoy7Nj2xNF5tG6Mmml0/s1600/Pilih%20hari%20spesifik.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Pilih Hari Spesifik untuk Jadwal</div>
-  </div>
-
-  <div class="es-card">
-    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJyoe9GcOKDa5kPQAgK9fgE3i50T3pVOK-ewlJWtJJonrLVZ7xsI0vMVsw5exEuPI__WGhcZHVX_gVqkY4pFSZniyFbbCy8_wDo2issEoPzX6THXJC2B4USJWcdAF02-Z2TAJRdUBzIIE6omVIYDuUt2u9Z83FdPF71YpSEqfptYFBfKABsMBmigs0hMk/s1600/Opsi%20pilih%20hari%20dan%20tanggal%20berulang.jpg" target="_blank">
-        <img alt="Opsi pilih hari dan tanggal berulang" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJyoe9GcOKDa5kPQAgK9fgE3i50T3pVOK-ewlJWtJJonrLVZ7xsI0vMVsw5exEuPI__WGhcZHVX_gVqkY4pFSZniyFbbCy8_wDo2issEoPzX6THXJC2B4USJWcdAF02-Z2TAJRdUBzIIE6omVIYDuUt2u9Z83FdPF71YpSEqfptYFBfKABsMBmigs0hMk/s1600/Opsi%20pilih%20hari%20dan%20tanggal%20berulang.jpg" width="100%" style="max-width: 350px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"/>
-    </a>
-    <div class="es-caption">Opsi Jadwal Berulang Fleksibel</div>
-  </div>
-</div>
-
-<div class="es-divider"></div>
-
-<h2>🔐 Privasi & Keamanan Data</h2>
-<p>
-ESchedulle berkomitmen untuk melindungi privasi Anda. Kami hanya mengumpulkan data minimal seperti alamat email untuk keperluan autentikasi akun dan sinkronisasi data jadwal harian Anda secara aman.
-</p>
-
-<p class="center">
-<a href="privacy-policy.html">Kebijakan Privasi</a> |
-<a href="terms-of-service.html">Syarat & Ketentuan</a>
-</p>
-
-<div class="es-divider"></div>
-
-<h2>📞 Hubungi Kami</h2>
-<p>
-Jika Anda memiliki pertanyaan mengenai penggunaan aplikasi atau kebijakan data, silakan hubungi kami di:<br>
-<strong>Email:</strong> <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a>
-</p>
-
-<div class="es-divider"></div>
-
-<div class="footer">
-    <p><strong>© 2026 ESchedulle</strong></p>
-    <p>Aplikasi Jadwal & Manajemen Tugas Pintar</p>
-</div>
-
-</div>
-
-<button class="scroll-to-top" id="scrollToTop" aria-label="Kembali ke atas">↑</button>
-
-<script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('show');
-        } else {
-            scrollToTopBtn.classList.remove('show');
-        }
-    });
-
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-</script>
-
+        <section class="links" aria-labelledby="download-title">
+            <h2 id="download-title">Unduh ESchedulle</h2>
+            <p><a href="https://play.google.com/store/apps/details?id=com.eriwandi.eschedulle" rel="noopener noreferrer">Buka halaman ESchedulle di Google Play</a></p>
+            <p>Untuk pertanyaan tentang aplikasi atau data pribadi, hubungi <a href="mailto:e.wandi@ymail.com">e.wandi@ymail.com</a>.</p>
+        </section>
+    </article>
+</main>
+<footer>ESchedulle - Planner, Reminder, and Task Manager | Terakhir diperbarui: 10 Oktober 2026</footer>
 </body>
 </html>

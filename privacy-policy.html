@@ -1,630 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="c56CREK9O6HxNT9DqBu6PlbN7Rr0C5ZL-nWPcE5cbIQ" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kebijakan Privasi ESchedulle: data yang dikumpulkan, tujuan penggunaan, Google Sign-In, Google Drive, iklan, dan pilihan penghapusan data.">
+    <link rel="canonical" href="https://eschedulle.online/privacy-policy.html">
     <title>Kebijakan Privasi - ESchedulle</title>
-
-    <!-- Favicon tetap menggunakan favicon.png -->
-    <link rel="icon" href="favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding-top: 80px;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 0 20px;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .nav-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1.5em;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        /* Logo navbar menggunakan ic.png */
-        .nav-logo-icon {
-            width: 28px;
-            height: 28px;
-            object-fit: contain;
-            flex-shrink: 0;
-            -webkit-text-fill-color: initial;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            position: relative;
-            padding: 8px 12px;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #667eea;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #667eea;
-            margin: 5px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(10px, 10px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            z-index: 999;
-        }
-
-        .scroll-to-top.show {
-            display: flex;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin: 20px 0;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 15px;
-        }
-
-        h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin: 35px 0 15px 0;
-            border-left: 5px solid #667eea;
-            padding-left: 15px;
-        }
-
-        h3 {
-            color: #764ba2;
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-        }
-
-        p {
-            margin: 12px 0;
-            text-align: justify;
-        }
-
-        ul,
-        ol {
-            margin: 15px 0 15px 30px;
-        }
-
-        li {
-            margin: 8px 0;
-        }
-
-        .highlight {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        .box {
-            background: #f0f7ff;
-            border-left: 4px solid #0066cc;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        th {
-            background: #667eea;
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-
-        td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        tr:hover {
-            background: #f9f9f9;
-        }
-
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        code {
-            background: #f0f0f0;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-        }
-
-        .footer {
-            border-top: 2px solid #ddd;
-            margin-top: 40px;
-            padding-top: 20px;
-            text-align: center;
-            color: #888;
-            font-size: 0.95em;
-        }
-
-        .gallery-section {
-            margin-top: 50px;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .gallery-item {
-            text-align: center;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            max-width: 350px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                gap: 0;
-                padding: 20px 0;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-link {
-                display: block;
-                padding: 15px;
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            .nav-link::after {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .container {
-                padding: 25px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            h2 {
-                font-size: 1.4em;
-            }
-        }
+        :root { --primary: #536dfe; --dark: #172554; --muted: #475569; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, Helvetica, sans-serif; line-height: 1.7; color: #1e293b; background: linear-gradient(135deg, #536dfe, #7c3aed); }
+        nav { position: sticky; top: 0; z-index: 2; background: rgba(255,255,255,.97); box-shadow: 0 2px 14px rgba(15,23,42,.15); }
+        .nav-inner { max-width: 1050px; min-height: 64px; margin: auto; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .brand { color: var(--dark); text-decoration: none; font-size: 1.35rem; font-weight: 700; white-space: nowrap; }
+        nav ul { display: flex; gap: 20px; list-style: none; padding: 0; margin: 0; }
+        nav a { color: #334155; text-decoration: none; font-weight: 600; }
+        nav a:hover, nav a:focus { color: var(--primary); text-decoration: underline; }
+        main { max-width: 950px; margin: 32px auto; padding: 0 22px; }
+        article { background: #fff; border-radius: 16px; padding: clamp(24px, 5vw, 56px); box-shadow: 0 14px 45px rgba(15,23,42,.22); }
+        h1, h2 { color: var(--dark); line-height: 1.25; }
+        h1 { margin-top: 0; font-size: clamp(2rem, 5vw, 3rem); }
+        h2 { margin-top: 38px; font-size: 1.55rem; border-left: 5px solid var(--primary); padding-left: 14px; }
+        h3 { color: #4338ca; margin-top: 25px; }
+        p, li { color: var(--muted); }
+        a { color: #4338ca; }
+        .notice { background: #eef2ff; border-left: 5px solid var(--primary); padding: 16px 18px; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 18px 0; }
+        th, td { border: 1px solid #cbd5e1; padding: 12px; vertical-align: top; text-align: left; }
+        th { background: #e0e7ff; color: var(--dark); }
+        footer { text-align: center; color: #e0e7ff; padding: 0 20px 30px; }
+        @media (max-width: 650px) { .nav-inner { align-items: flex-start; flex-direction: column; padding-top: 14px; padding-bottom: 14px; } nav ul { flex-wrap: wrap; gap: 10px 16px; } table { font-size: .92rem; } }
     </style>
 </head>
-
 <body>
-
-<nav>
-    <div class="nav-container">
-
-        <!-- Logo navbar menggunakan ic.png -->
-        <a href="index.html" class="nav-logo">
-            <img src="./ic.png" alt="Logo ESchedulle" class="nav-logo-icon">
-            <span>ESchedulle</span>
-        </a>
-
-        <ul class="nav-menu">
-            <li>
-                <a href="index.html" class="nav-link" id="nav-home">
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a href="privacy-policy.html" class="nav-link active" id="nav-privacy">
-                    Privasi
-                </a>
-            </li>
-
-            <li>
-                <a href="terms-of-service.html" class="nav-link" id="nav-tos">
-                    Syarat &amp; Ketentuan
-                </a>
-            </li>
+<nav aria-label="Navigasi utama">
+    <div class="nav-inner">
+        <a class="brand" href="index.html">ESchedulle</a>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="privacy-policy.html" aria-current="page">Kebijakan Privasi</a></li>
+            <li><a href="terms-of-service.html">Syarat &amp; Ketentuan</a></li>
         </ul>
-
-        <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
     </div>
 </nav>
 
-<div class="container">
+<main>
+<article>
+    <h1>Kebijakan Privasi ESchedulle</h1>
+    <p><strong>Terakhir diperbarui: 10 Oktober 2026</strong></p>
 
-    <h1>🔒 Kebijakan Privasi ESchedulle</h1>
-
-    <h2>1. Ikhtisar</h2>
-
-    <p>
-        <strong>ESchedulle</strong> adalah aplikasi produktivitas Android yang dirancang
-        untuk membantu Anda mengelola jadwal rutinitas, alarm, dan daftar tugas (To-Do)
-        secara efektif. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan,
-        menggunakan, dan melindungi data Anda saat menggunakan aplikasi mobile
-        <strong>ESchedulle</strong> dan situs web
-        <a href="https://eschedulle.online">https://eschedulle.online</a>.
-    </p>
-
-    <h2>2. Pengumpulan &amp; Penggunaan Data</h2>
-
-    <h3>2.1 Data Informasi Akun (Google Sign-In)</h3>
-
-    <p>
-        Saat Anda memilih untuk masuk menggunakan Google Sign-In, kami menerima
-        informasi profil dasar meliputi alamat email dan nama Anda. Informasi ini
-        digunakan secara eksklusif untuk memverifikasi identitas Anda dan menyediakan
-        fitur sinkronisasi data jadwal harian Anda.
-    </p>
-
-    <h3>2.2 Data Jadwal, Tugas &amp; Pencadangan Cloud</h3>
-
-    <p>
-        Data jadwal, waktu alarm, dan daftar tugas yang Anda buat disimpan secara
-        lokal di perangkat Anda. Jika Anda mengaktifkan fitur pencadangan cloud
-        (Google Drive / Firebase), data ini disimpan di ruang penyimpanan terlindungi
-        agar Anda dapat mengaksesnya kembali saat berganti perangkat.
-    </p>
-
-    <h3>2.3 Notifikasi &amp; Alarm</h3>
-
-    <p>
-        Notifikasi pengingat dan alarm diproses di perangkat Anda untuk memastikan
-        jadwal harian dan timer berjalan tepat waktu meskipun perangkat dalam kondisi
-        terkunci.
-    </p>
-
-    <h2>3. Izin Aplikasi yang Diperlukan</h2>
-
-    <p>
-        Berikut adalah izin sistem yang diminta oleh ESchedulle beserta fungsinya:
-    </p>
-
-    <div class="box">
-        <strong>INTERNET</strong>
-        <p>
-            Diperlukan untuk: Otentikasi Google Sign-In, sinkronisasi cloud,
-            dan layanan periklanan.
-        </p>
+    <div class="notice">
+        <p><strong>Ringkasan:</strong> ESchedulle adalah aplikasi Android untuk jadwal, pengingat, alarm, timer, dan tugas. Data jadwal serta tugas disimpan di perangkat secara default. Jika Anda memilih fitur Google, data yang diperlukan untuk login dan pencadangan diproses oleh layanan Google sesuai izin yang Anda berikan.</p>
     </div>
 
-    <div class="box">
-        <strong>POST_NOTIFICATIONS &amp; SCHEDULE_EXACT_ALARM</strong>
-        <p>
-            Diperlukan untuk: Menampilkan notifikasi alarm dan pengingat jadwal
-            tepat waktu.
-        </p>
-    </div>
+    <h2>1. Ruang lingkup dan pengelola</h2>
+    <p>Kebijakan ini berlaku untuk aplikasi Android <strong>ESchedulle</strong> dan situs <a href="https://eschedulle.online">https://eschedulle.online</a>. Pengelola aplikasi adalah Eriwandi Studio. Jika Anda memiliki pertanyaan atau permintaan terkait data pribadi, hubungi <a href="mailto:e.wandi@ymail.com">e.wandi@ymail.com</a>.</p>
 
-    <div class="box">
-        <strong>RECEIVE_BOOT_COMPLETED &amp; WAKE_LOCK</strong>
-        <p>
-            Diperlukan untuk: Menjadwalkan ulang alarm secara otomatis saat perangkat
-            dihidupkan ulang.
-        </p>
-    </div>
+    <h2>2. Data yang digunakan dan alasan penggunaannya</h2>
+    <table>
+        <thead><tr><th>Jenis data</th><th>Sumber</th><th>Tujuan penggunaan</th></tr></thead>
+        <tbody>
+            <tr><td>Alamat email akun Google</td><td>Google Sign-In, hanya setelah Anda memilih login</td><td>Mengenali akun yang sedang digunakan, menghubungkan data dengan sesi akun, dan menjalankan fitur Google Drive.</td></tr>
+            <tr><td>Jadwal, waktu, pengulangan, catatan, tugas, status tugas, serta pengaturan aplikasi</td><td>Data yang Anda masukkan atau buat di ESchedulle</td><td>Menampilkan agenda, menjalankan timer, membuat pengingat, dan memulihkan data dari backup.</td></tr>
+            <tr><td>Data backup ESchedulle</td><td>Dibuat saat Anda memilih backup atau sinkronisasi</td><td>Disimpan di folder aplikasi Google Drive (<code>appDataFolder</code>) agar dapat dipulihkan pada perangkat lain yang menggunakan akun Google Anda.</td></tr>
+            <tr><td>Data pembelian</td><td>Google Play Billing</td><td>Memproses dan memulihkan pembelian satu kali untuk menghapus iklan. Detail pembayaran dikelola oleh Google Play; ESchedulle tidak menerima nomor kartu pembayaran.</td></tr>
+            <tr><td>Data iklan dan penggunaan aplikasi</td><td>Google AdMob dan SDK terkait, sesuai izin/consent yang berlaku</td><td>Memuat dan mengukur iklan, mencegah penyalahgunaan, serta menyediakan pilihan privasi iklan. Jenis data dapat mencakup informasi perangkat, alamat IP atau perkiraan lokasi, pengenal iklan, interaksi iklan, dan data diagnostik sesuai kebijakan Google.</td></tr>
+        </tbody>
+    </table>
+    <p>ESchedulle tidak meminta izin kontak, lokasi, atau kamera. Jika Anda memilih file suara atau gambar melalui pemilih file Android, aplikasi menggunakan file yang Anda pilih untuk fitur alarm; file tersebut tetap berada di perangkat dan tidak menjadi bagian dari backup cloud aplikasi.</p>
 
-    <h2>4. Keamanan &amp; Penghapusan Data</h2>
+    <h2>3. Google Sign-In dan Google Drive</h2>
+    <p>Login Google bersifat opsional untuk penggunaan dasar. Saat Anda login, ESchedulle meminta alamat email melalui Google Sign-In. Saat Anda memilih untuk menghubungkan Drive, aplikasi meminta scope <code>https://www.googleapis.com/auth/drive.appdata</code>. Scope ini digunakan untuk membuat, membaca, memperbarui, dan menghapus backup ESchedulle di ruang data aplikasi Google Drive.</p>
+    <p>ESchedulle tidak membaca atau mengubah dokumen umum di Google Drive Anda untuk fitur backup ini. Isi backup diproses hanya untuk menyediakan backup dan pemulihan jadwal, tugas, dan pengaturan yang Anda minta. Google dapat memproses data sesuai <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Kebijakan Privasi Google</a>.</p>
 
-    <p>
-        Kami menerapkan standar keamanan berbasis token OAuth 2.0 dan enkripsi
-        terenkripsi untuk melindungi data Anda. Anda memiliki kontrol penuh atas
-        data Anda:
-    </p>
+    <h2>4. Penyimpanan lokal, notifikasi, dan alarm</h2>
+    <p>Jadwal, tugas, preferensi, serta status pengingat disimpan di penyimpanan aplikasi pada perangkat. Notifikasi, alarm tepat waktu, alarm layar penuh, widget, dan layanan latar belakang diproses oleh Android berdasarkan izin dan pengaturan perangkat. Data ini tidak dikirim ke pengelola hanya karena notifikasi atau alarm digunakan.</p>
 
+    <h2>5. Layanan pihak ketiga</h2>
     <ul>
-        <li>
-            Anda dapat menghapus entri jadwal dan tugas kapan saja langsung dari
-            dalam aplikasi.
-        </li>
-        <li>
-            Anda dapat melakukan keluar akun (Sign Out) dari aplikasi kapan saja.
-        </li>
-        <li>
-            Saat Anda menghapus instalasi (<em>uninstall</em>) aplikasi, seluruh
-            data lokal pada perangkat akan terhapus.
-        </li>
-        <li>
-            Anda dapat mengajukan permohonan penghapusan akun dan seluruh data terkait
-            dengan menghubungi kami melalui email.
-        </li>
+        <li><strong>Google Sign-In:</strong> autentikasi akun dan alamat email yang Anda izinkan.</li>
+        <li><strong>Google Drive API:</strong> backup dan restore di <code>appDataFolder</code> setelah Anda menghubungkan Drive.</li>
+        <li><strong>Google AdMob dan User Messaging Platform:</strong> iklan, pengukuran iklan, dan pengelolaan consent/opsi privasi iklan.</li>
+        <li><strong>Google Play Billing:</strong> pembelian serta pemulihan fitur hapus iklan.</li>
+        <li><strong>Firebase Analytics SDK:</strong> aplikasi menyertakan SDK analitik untuk informasi penggunaan dan diagnostik aplikasi, bila pengumpulan analitik diaktifkan. SDK ini tidak digunakan untuk menyimpan backup Google Drive.</li>
+    </ul>
+    <p>ESchedulle tidak menjual data pribadi Anda. Layanan pihak ketiga dapat memproses data sesuai kebijakan mereka dan konfigurasi consent yang berlaku di wilayah Anda.</p>
+
+    <h2>6. Berbagi data dan keamanan</h2>
+    <p>Data hanya dibagikan kepada layanan pihak ketiga yang diperlukan untuk fungsi yang Anda pilih, seperti login Google, backup Drive, iklan, analitik, dan pembelian Google Play. Transfer data jaringan menggunakan HTTPS/TLS jika didukung oleh layanan terkait. Token akses Google digunakan untuk permintaan yang diperlukan dan tidak ditampilkan kepada pengguna lain. Tidak ada metode transmisi atau penyimpanan yang dapat dijamin 100% aman, sehingga Anda juga harus menjaga keamanan akun Google dan perangkat Anda.</p>
+
+    <h2>7. Penghapusan dan kontrol data</h2>
+    <ul>
+        <li>Anda dapat mengubah atau menghapus jadwal dan tugas dari dalam aplikasi.</li>
+        <li>Anda dapat logout dari Google melalui halaman akun/profil ESchedulle.</li>
+        <li>Anda dapat menghapus backup Google Drive melalui pilihan pengelolaan sinkronisasi di aplikasi atau melalui akun Google Anda.</li>
+        <li>Anda dapat menghapus data lokal melalui pengaturan Android atau dengan menghapus aplikasi. Backup di Google Drive tidak otomatis terhapus saat aplikasi di-uninstall.</li>
+        <li>Untuk meminta penghapusan data yang masih diproses oleh pengelola, kirim email ke <a href="mailto:e.wandi@ymail.com">e.wandi@ymail.com</a>. Jelaskan akun atau data yang ingin dihapus; kami dapat meminta verifikasi kepemilikan akun.</li>
+        <li>Untuk data yang dikelola Google AdMob, Google Analytics, Google Drive, atau Google Play, gunakan juga kontrol dan prosedur penghapusan yang disediakan oleh Google.</li>
     </ul>
 
-    <h2>5. Layanan Pihak Ketiga</h2>
+    <h2>8. Retensi data</h2>
+    <p>Data lokal disimpan sampai Anda menghapusnya atau menghapus data aplikasi. Backup Drive disimpan sampai Anda menghapusnya atau meminta penghapusannya. Alamat email yang tersimpan untuk sesi aplikasi dihapus ketika Anda logout atau menghapus data aplikasi, dengan kemungkinan salinan yang masih berada pada layanan Google mengikuti kebijakan retensi Google.</p>
 
-    <p>
-        Aplikasi ini terintegrasi dengan layanan pihak ketiga tepercaya berikut:
-    </p>
+    <h2>9. Anak-anak</h2>
+    <p>ESchedulle adalah aplikasi produktivitas umum dan tidak ditujukan untuk mengumpulkan data anak-anak secara sengaja. Jika Anda yakin seorang anak telah memberikan data pribadi tanpa izin yang sesuai, hubungi kami melalui email di atas.</p>
 
-    <ul>
-        <li>
-            <strong>Google Sign-In &amp; Google Drive API:</strong>
-            Untuk otentikasi akun dan pencadangan data jadwal.
-        </li>
-        <li>
-            <strong>Firebase (Google Cloud Platform):</strong>
-            Untuk infrastruktur otentikasi dan notifikasi.
-        </li>
-        <li>
-            <strong>Google AdMob &amp; Unity Ads:</strong>
-            Untuk menampilkan iklan guna mendukung pengembangan aplikasi.
-        </li>
-    </ul>
+    <h2>10. Perubahan kebijakan</h2>
+    <p>Kami dapat memperbarui kebijakan ini ketika fitur, layanan, atau kewajiban hukum berubah. Versi terbaru akan dipublikasikan di halaman ini bersama tanggal pembaruan.</p>
 
-    <h2>6. Hubungi Kami</h2>
-
-    <p>
-        Jika Anda memiliki pertanyaan mengenai Kebijakan Privasi ini, silakan
-        hubungi pengembang di:
-    </p>
-
-    <div class="highlight">
-        <p>
-            <strong>Email:</strong>
-            <a href="mailto:ewandi70@gmail.com">ewandi70@gmail.com</a>
-            <br>
-
-            <strong>Situs Web:</strong>
-            <a href="https://eschedulle.online">https://eschedulle.online</a>
-        </p>
-    </div>
-
-    <div class="gallery-section">
-
-        <h2>Galeri Tampilan ESchedulle</h2>
-
-        <div class="gallery">
-
-            <div class="gallery-item">
-                <h3>Home</h3>
-
-                <a
-                    href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6-hTtmbYHHwwKSNrH04xxSM0Pn7Zdn8lb2aomz9B49VAblJIdFOZxgkcF8Yx3_nEW0to3CA3oNr_Q4DeTzj9c6jwzgyPscOGIeyAlJpivGKxWg2nQSAx6eo5cP-cpjN4TOk02BgY391Llc945Z7AahwXsMm5yRsHO-sDc68y_iNvjVktevxUyR07LIkg/s1600/Home.jpg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        alt="Home"
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6-hTtmbYHHwwKSNrH04xxSM0Pn7Zdn8lb2aomz9B49VAblJIdFOZxgkcF8Yx3_nEW0to3CA3oNr_Q4DeTzj9c6jwzgyPscOGIeyAlJpivGKxWg2nQSAx6eo5cP-cpjN4TOk02BgY391Llc945Z7AahwXsMm5yRsHO-sDc68y_iNvjVktevxUyR07LIkg/s1600/Home.jpg"
-                    >
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <h3>Daftar Tugas</h3>
-
-                <a
-                    href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6K2DPjMSzmnoBDy2eWLHXOJvUENy6ldYeJ7923qAuiBqDonfZkaR3jzpo00IlscfwMAjyDoQ3hBdQwnzwo5AiL1R0Qjw5XineyKDCzl39mrauzKWT4QeAetq9oxw9EtWVT3EEoHt__Jz8ID29Jmb9Yvtxgmd2FInzLjlc6nnck4KX978p_DGnJ89_eJM/s1600/Daftar%20tugas.jpg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        alt="Daftar tugas"
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6K2DPjMSzmnoBDy2eWLHXOJvUENy6ldYeJ7923qAuiBqDonfZkaR3jzpo00IlscfwMAjyDoQ3hBdQwnzwo5AiL1R0Qjw5XineyKDCzl39mrauzKWT4QeAetq9oxw9EtWVT3EEoHt__Jz8ID29Jmb9Yvtxgmd2FInzLjlc6nnck4KX978p_DGnJ89_eJM/s1600/Daftar%20tugas.jpg"
-                    >
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <h3>Notifikasi</h3>
-
-                <a
-                    href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqCnUIqmH2V1ivPsSysP8DWxS-G9QDtUwLGvGkuoMoswlyx-qieT8PhaouCVfoP3j5yCQrQNokY5vYBsb-AxoZMyiG1JhLiOsTK2BRqi1Z2DjPqXnZsFr-GCMPB-hjHvcE4JE7xaJkWDfQ3G0Kox_aEr3Dm-7WL7B5fxVhZGkj8wSHRZO4e28tMPTkBzY/s1600/Notifikasi.jpg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        alt="Notifikasi"
-                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqCnUIqmH2V1ivPsSysP8DWxS-G9QDtUwLGvGkuoMoswlyx-qieT8PhaouCVfoP3j5yCQrQNokY5vYBsb-AxoZMyiG1JhLiOsTK2BRqi1Z2DjPqXnZsFr-GCMPB-hjHvcE4JE7xaJkWDfQ3G0Kox_aEr3Dm-7WL7B5fxVhZGkj8wSHRZO4e28tMPTkBzY/s1600/Notifikasi.jpg"
-                    >
-                </a>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="footer">
-        <p><strong>Kebijakan Privasi ESchedulle</strong></p>
-        <p>Terakhir diperbarui: Oktober 2026</p>
-    </div>
-
-</div>
-
-<button class="scroll-to-top" id="scrollToTop" aria-label="Kembali ke atas">
-    ↑
-</button>
-
-<script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (hamburger) {
-                hamburger.classList.remove('active');
-            }
-
-            if (navMenu) {
-                navMenu.classList.remove('active');
-            }
-        });
-    });
-
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('show');
-        } else {
-            scrollToTopBtn.classList.remove('show');
-        }
-    });
-
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-</script>
-
+    <h2>11. Kontak</h2>
+    <p>Email: <a href="mailto:e.wandi@ymail.com">e.wandi@ymail.com</a><br>Website: <a href="https://eschedulle.online">https://eschedulle.online</a></p>
+</article>
+</main>
+<footer>Kebijakan Privasi ESchedulle | Terakhir diperbarui: 10 Oktober 2026</footer>
 </body>
 </html>
